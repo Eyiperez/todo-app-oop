@@ -33,8 +33,19 @@ class App {
     }
 
     initializeViews() {
+        const root = document.querySelector('#root');
+        let applicationHTML = '';
 
+        for (let view of this.views) {
+            applicationHTML += `<div id='${view.name}'>${view.render}</div>`;
+        }
+        root.innerHTML = applicationHTML;
     }
+
+    addView(name, html) {
+        this.views.push(new View(name, html));
+    }
+
 }
 
 const app = new App();
@@ -61,3 +72,5 @@ app.addView('list',
     <li class="list-group-item" data-i="0">Chicken</li>
 </ul>`
 );
+
+app.initializeViews();
