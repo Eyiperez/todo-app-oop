@@ -13,8 +13,25 @@ class TodoData {
         this.list.splice(index, 1);
         localStorage.setItem('todolist', JSON.stringify(this.list));
     }
-
 }
 
-const data = new TodoData();
-console.log(data.list)
+//View
+class View {
+    constructor(name, render) {
+        this.name = name;
+        this.render = render;
+    }
+}
+
+//App 
+class App {
+    constructor() {
+        //Initialize Model
+        this.todos = new TodoData();
+    }
+
+    initializeViews() {
+
+    }
+}
+
